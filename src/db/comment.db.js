@@ -10,6 +10,10 @@ class CommentDb {
     findAll() {
         return this.comments;
     }
+
+    findByPostId(id) {
+        return null;
+    }
 }
 
 export default new CommentDb();

@@ -10,6 +10,10 @@ class PostDb {
     findAll() {
         return this.posts;
     }
+
+    findByAuthorId(id) {
+        return null;
+    }
 }
 
 export default new PostDb();

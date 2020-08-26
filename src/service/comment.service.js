@@ -8,6 +8,10 @@ class CommentService {
     findAll() {
         return CommentDb.findAll();
     }
+
+    findByPostId(id) {
+        return CommentDb.findByPostId(id);
+    }
 }
 
 export default new CommentService();

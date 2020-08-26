@@ -8,6 +8,10 @@ class PostService {
     findAll() {
         return PostDb.findAll();
     }
+
+    findByAuthorId(id) {
+        return PostDb.findByAuthorId(id);
+    }
 }
 
 export default new PostService();

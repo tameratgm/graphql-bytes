@@ -34,8 +34,14 @@ const typeDefs = gql`
     # clients can execute, along with the return type for each. In this
     # case, the "authors" query returns an array of zero or more Authors (defined above).
     type Query {
-        authors: [Author]
+        authors: [Author!]!
         author(id: ID!): Author
+
+        posts(authorId: ID!): [Post!]!
+        post(id: ID!): Post
+
+        comments(postId: ID!): [Comment!]!
+        comment(id: ID!): Comment
     }
 `;
 
