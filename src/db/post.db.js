@@ -4,7 +4,7 @@ class PostDb {
     }
 
     findById(id) {
-        return this.posts[id];
+        return this.posts.find((p) => p.id === id);
     }
 
     findAll() {
@@ -12,7 +12,13 @@ class PostDb {
     }
 
     findByAuthorId(id) {
-        return null;
+        return this.posts.filter((p) => p.author.id === id);
+    }
+
+    insert(post) {
+        this.posts.push(post);
+
+        return post;
     }
 }
 

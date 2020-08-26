@@ -4,7 +4,7 @@ class AuthorDb {
     }
 
     findById(id) {
-        return this.authors[id];
+        return this.authors.find((e) => e.id === id);
     }
 
     findAll() {

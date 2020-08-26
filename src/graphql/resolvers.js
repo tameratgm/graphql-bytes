@@ -41,6 +41,13 @@ const resolvers = {
         createAuthor(self, { input }, context) {
             return AuthorService.create(input);
         },
+        createPost(self, { input }, context) {
+            const author = AuthorService.findById(input.authorId);
+            if (!author) {
+                throw new Error(`Author ${input.authorId} not found.`);
+            }
+            return PostService.create(author, input);
+        },
     },
 };
 
