@@ -1,16 +1,4 @@
-const authors = [
-    {
-        id: 0,
-        firstName: 'Arthur',
-        lastName: 'Jones',
-        email: 'arthur.jones@what.com',
-    },
-    {
-        id: 1,
-        firstName: 'Foo',
-        lastName: 'Bar',
-    },
-];
+import AuthorService from '../service/author.service';
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
@@ -22,10 +10,10 @@ const resolvers = {
     },
     Query: {
         authors(self, args, context) {
-            return authors;
+            return AuthorService.findAll();
         },
         author(self, { id }, context) {
-            return authors[id];
+            return AuthorService.findById(id);
         },
     },
 };
