@@ -37,6 +37,11 @@ const resolvers = {
             return CommentService.findById(id);
         },
     },
+    Mutation: {
+        createAuthor(self, { input }, context) {
+            return AuthorService.create(input);
+        },
+    },
 };
 
 export default resolvers;

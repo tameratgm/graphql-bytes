@@ -33,6 +33,7 @@ const typeDefs = gql`
     # The "Query" type is special: it lists all of the available queries that
     # clients can execute, along with the return type for each. In this
     # case, the "authors" query returns an array of zero or more Authors (defined above).
+    # Note that the "Query" type is for read operations only
     type Query {
         authors: [Author!]!
         author(id: ID!): Author
@@ -42,6 +43,22 @@ const typeDefs = gql`
 
         comments(postId: ID!): [Comment!]!
         comment(id: ID!): Comment
+    }
+
+    # Input types allow us to group inputs into a type instead of destructuring them
+    input AuthorInput {
+        # the annotation below appears in GraphQL enabled tools like the playground
+        "The author's first name"
+        firstName: String!
+        "The author's last name"
+        lastName: String!
+        "The (optional) email"
+        email: String
+    }
+
+    # The "Mutation" type defines "write" operations
+    type Mutation {
+        createAuthor(input: AuthorInput): Author
     }
 `;
 

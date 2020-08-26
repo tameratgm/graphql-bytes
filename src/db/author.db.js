@@ -1,18 +1,6 @@
 class AuthorDb {
     constructor() {
-        this.authors = [
-            {
-                id: 0,
-                firstName: 'Arthur',
-                lastName: 'Jones',
-                email: 'arthur.jones@what.com',
-            },
-            {
-                id: 1,
-                firstName: 'Foo',
-                lastName: 'Bar',
-            },
-        ];
+        this.authors = [];
     }
 
     findById(id) {
@@ -21,6 +9,12 @@ class AuthorDb {
 
     findAll() {
         return this.authors;
+    }
+
+    insert(newAuthor) {
+        this.authors.push(newAuthor);
+
+        return newAuthor;
     }
 }
 
