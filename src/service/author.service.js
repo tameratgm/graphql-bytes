@@ -12,7 +12,7 @@ class AuthorService {
     }
 
     create({ firstName, lastName, email }) {
-        const newAuthor = {
+        const author = {
             id: uuidv4(),
             firstName: firstName,
             lastName: lastName,
@@ -20,7 +20,7 @@ class AuthorService {
             posts: [],
         };
 
-        return AuthorDb.insert(newAuthor);
+        return AuthorDb.insert(author);
     }
 }
 

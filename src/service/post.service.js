@@ -15,17 +15,16 @@ class PostService {
         return PostDb.findByAuthorId(id);
     }
 
-    create(author, { title, body, authorId }) {
+    create(author, { title, body }) {
         const post = {
             id: uuidv4(),
             title: title,
             body: body,
-            authorId: authorId,
+            author: author,
             comments: [],
         };
 
         const newPost = PostDb.insert(post);
-        newPost.author = author;
         author.posts.push(newPost);
 
         return newPost;

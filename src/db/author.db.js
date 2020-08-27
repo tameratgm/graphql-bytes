@@ -11,10 +11,10 @@ class AuthorDb {
         return this.authors;
     }
 
-    insert(newAuthor) {
-        this.authors.push(newAuthor);
+    insert(author) {
+        this.authors.push(author);
 
-        return newAuthor;
+        return author;
     }
 }
 

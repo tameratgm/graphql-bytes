@@ -15,15 +15,14 @@ class CommentService {
         return CommentDb.findByPostId(id);
     }
 
-    create(post, { text, postId }) {
+    create(post, { text }) {
         const comment = {
             id: uuidv4(),
             text: text,
-            postId: postId,
+            post: post,
         };
 
         const newComment = CommentDb.insert(comment);
-        newComment.post = post;
         post.comments.push(newComment);
 
         return newComment;
