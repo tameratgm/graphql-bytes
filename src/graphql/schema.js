@@ -62,10 +62,16 @@ const typeDefs = gql`
         authorId: ID!
     }
 
+    input CommentInput {
+        text: String!
+        postId: ID!
+    }
+
     # The "Mutation" type defines "write" operations
     type Mutation {
         createAuthor(input: AuthorInput): Author
         createPost(input: PostInput): Post
+        createComment(input: CommentInput): Comment
     }
 `;
 

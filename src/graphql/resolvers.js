@@ -48,6 +48,13 @@ const resolvers = {
             }
             return PostService.create(author, input);
         },
+        createComment(self, { input }, context) {
+            const post = PostService.findById(input.postId);
+            if (!post) {
+                throw new Error(`Post ${input.postId} not found.`);
+            }
+            return CommentService.create(post, input);
+        },
     },
 };
 

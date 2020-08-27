@@ -4,7 +4,7 @@ class CommentDb {
     }
 
     findById(id) {
-        return this.comments[id];
+        return this.comments.find((e) => e.id === id);
     }
 
     findAll() {
@@ -12,7 +12,13 @@ class CommentDb {
     }
 
     findByPostId(id) {
-        return null;
+        return this.comments.filter((e) => e.id === id);
+    }
+
+    insert(comment) {
+        this.comments.push(comment);
+
+        return comment;
     }
 }
 
