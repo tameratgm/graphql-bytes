@@ -6,6 +6,11 @@ import { gql } from 'apollo-server-express';
 const typeDefs = gql`
     # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
+    # Directives allow you to perform pre or post processing on a variety of different GraphQL types
+    # In this particular case, we define a directive called @chicken that can only be applied to fields
+    # on a type. See the ApolloServer constructor in index.js for the definition of @chicken.
+    directive @chicken on FIELD_DEFINITION
+
     # This "Author" type defines the queryable fields for every author in our data source.
     # The '!' character means that the field is required to be on the object.
     type Author {
@@ -19,7 +24,7 @@ const typeDefs = gql`
     type Post {
         id: ID!
         title: String
-        body: String
+        body: String @chicken
         author: Author!
         comments: [Comment!]
     }
