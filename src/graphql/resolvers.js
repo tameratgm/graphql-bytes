@@ -1,7 +1,6 @@
 import AuthorService from '../service/author.service';
 import PostService from '../service/post.service';
 import CommentService from '../service/comment.service';
-import authorLoader from './dataloaders/authorLoader';
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.

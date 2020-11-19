@@ -25,3 +25,9 @@ npm run dev
 ## Examples
 
 See the [GraphQL Bytes Postman Collection](https://www.getpostman.com/collections/cf563aa6f2b453304da0).
+
+## Testing
+
+There are two levels of tests being demonstrated in this repository: unit tests for services and integration
+tests for the Apollo Server. Both are run by executing `npm test`. Note that there is only one service being
+tested in the repo here (the `author.service`). This is not an oversight; it's done to demonstrate _how_ we'd implement unit tests to test services without being exhaustive to save time.
